@@ -1,6 +1,12 @@
-FROM amazoncorretto:17.0.7
+FROM amazoncorretto:17.0.7 AS builder
+COPY gradlew .
+COPY gradle gradle
+COPY build.gradle .
+COPY settings.gradle .
+COPY src src
+RUN chmod +x ./gradlew
+RUN ./gradlew clean build
 
-RUN ["/bin/bash", "-c","ls", "-al", "build/libs"]
-COPY build/libs/*.jar github-action-tutorial.jar
+COPY --from=builder build/libs/*.jar github-action-tutorial.jar
 
 ENTRYPOINT ["java", "-jar", "github-action-tutorial.jar"]
