@@ -1,4 +1,4 @@
-name: Github action tutorial CI
+name: Push Main into Main
 
 on:
   push:
@@ -25,6 +25,8 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/github-action-tutorial:0.1
 ---
+name: Pull Request into Main
+
 on:
   pull_request:
     branches:
