@@ -22,7 +22,7 @@ jobs:
           distribution: 'corretto'
 
       - name: Build with Gradle
-        run: ./gradlew clean build --exclude-task test
+        run: ./gradlew clean build
 
   push_job:
     if: github.event_name == 'push'
