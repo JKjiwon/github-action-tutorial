@@ -22,7 +22,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         env:
-          BUILD_OPTIONS: --exclude-task test
+          BUILD_OPTIONS:
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/github-action-tutorial:latest
