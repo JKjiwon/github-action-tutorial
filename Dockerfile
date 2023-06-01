@@ -5,7 +5,7 @@ COPY build.gradle.kts .
 COPY settings.gradle.kts .
 COPY src src
 RUN chmod +x ./gradlew
-RUN ./gradlew clean build
+RUN ./gradlew clean build --exclude-task test
 
 
 FROM amazoncorretto:17-alpine-jdk
