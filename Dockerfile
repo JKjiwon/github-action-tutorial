@@ -10,6 +10,7 @@ COPY src src
 RUN echo $BUILD_OPTIONS
 RUN chmod +x ./gradlew
 RUN ./gradlew clean build $BUILD_OPTIONS
+RUN ./gradlew clean build $BUILD_OPTIONS
 
 
 FROM amazoncorretto:17-alpine-jdk
