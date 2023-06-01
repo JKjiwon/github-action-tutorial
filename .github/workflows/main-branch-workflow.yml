@@ -46,4 +46,5 @@ jobs:
           build-args: |
             "BUILD_OPTIONS=--exclude-task test"
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/github-action-tutorial:0.2
+          image: ${{ secrets.DOCKERHUB_USERNAME }}/github-action-tutorial
+          tags: 0.3, latest
