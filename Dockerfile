@@ -7,9 +7,10 @@ COPY settings.gradle.kts .
 ENV BUILD_OPTIONS=${BUILD_OPTIONS}
 
 COPY src src
+RUN echo $BUILD_OPTIONS
 RUN chmod +x ./gradlew
-RUN echo /bin/bash -c echo ${BUILD_OPTIONS}
-RUN ./gradlew clean build ${BUILD_OPTIONS}
+RUN ./gradlew clean build $BUILD_OPTIONS
+RUN ./gradlew clean build $BUILD_OPTIONS
 
 
 FROM amazoncorretto:17-alpine-jdk
