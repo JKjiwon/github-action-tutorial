@@ -4,6 +4,7 @@ COPY gradle gradle
 COPY build.gradle.kts .
 COPY settings.gradle.kts .
 
+ARG BUILD_OPTIONS
 ENV BUILD_OPTIONS ${BUILD_OPTIONS}
 
 COPY src src
