@@ -1,4 +1,4 @@
-FROM amazoncorretto:17-alpine-jdk AS builder
+FROM amazoncorretto:17.0.7-al2023-headless AS builder
 COPY gradlew .
 COPY gradle gradle
 COPY build.gradle.kts .
@@ -12,7 +12,7 @@ RUN chmod +x ./gradlew
 RUN ./gradlew clean build ${BUILD_OPTIONS}
 
 
-FROM amazoncorretto:17-alpine-jdk
+FROM amazoncorretto:17.0.7-al2023-headless
 COPY --from=builder build/libs/*.jar github-action-tutorial.jar
 
 ENTRYPOINT ["java", "-jar", "github-action-tutorial.jar"]
