@@ -8,6 +8,7 @@ ENV BUILD_OPTIONS=${BUILD_OPTIONS}
 
 COPY src src
 RUN chmod +x ./gradlew
+RUN echo /bin/bash -c echo ${BUILD_OPTIONS}
 RUN ./gradlew clean build ${BUILD_OPTIONS}
 
 
